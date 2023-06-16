@@ -9,6 +9,10 @@ public class HelloController {
     private Label welcomeText;
 
     @FXML
+    private Label timerField;
+
+
+    @FXML
     protected void onStartButtonClick() {
         welcomeText.setText("code for starting the timer");
     }
