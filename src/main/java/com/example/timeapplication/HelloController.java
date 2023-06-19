@@ -1,26 +1,30 @@
 package com.example.timeapplication;
 
-import javafx.animation.AnimationTimer;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import com.example.resuable.*;
 
 public class HelloController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
     private Label timerField;
 
-
     @FXML
     protected void onStartButtonClick() {
-        welcomeText.setText("code for starting the timer");
+//        timerLogic timerlogic = new timerLogic();
+            timerField.setText(String.valueOf(1));
+            timerLogic.start();
+
     }
     @FXML
     protected void onEndButtonClick() {
+        timerLogic timerlogic = new timerLogic();
        int i = 1;
        for (int j = 0;j < i; j++){
-           welcomeText.setText("code for ending the timer");
+           timerField.setText("timerLogic.end()");
+           timerlogic.end();
+
        }
 
     }

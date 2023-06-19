@@ -10,7 +10,6 @@
 <?import javafx.scene.text.Text?>
 <FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.timeapplication.HelloController">
     <Button text="Start/pause" onAction="#onStartButtonClick"/>
-    <Label fx:id="welcomeText"/>
     <Label fx:id="timerField">00:00:00</Label>
     <Button text="End" onAction="#onEndButtonClick"/>
 </FlowPane>
