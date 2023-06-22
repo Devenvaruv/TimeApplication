@@ -12,8 +12,8 @@ public class HelloController {
 
     @FXML
     protected void onStartButtonClick() {
-//        timerLogic timerlogic = new timerLogic();
-            timerField.setText(String.valueOf(1));
+        timerLogic timerlogic = new timerLogic();
+            timerField.setText(String.valueOf(timerlogic.getHours()) + ":" + String.valueOf(timerlogic.getMinutes()) + ":" + String.valueOf(timerlogic.getSeconds()));
             timerLogic.start();
 
     }

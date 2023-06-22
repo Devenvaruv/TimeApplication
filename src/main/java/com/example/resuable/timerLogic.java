@@ -1,5 +1,30 @@
 package com.example.resuable;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
+class Helper extends TimerTask
+{
+    public static int i = 0;
+    public void run()
+    {
+        System.out.println("Timer ran " + ++i);
+    }
+}
+
+ class Test
+{
+    public static void main(String[] args)
+    {
+
+        Timer timer = new Timer();
+        TimerTask task = new Helper();
+
+        timer.schedule(task, 500, 8000);
+
+    }
+}
+
 public class timerLogic {
     private int seconds = 00;
     private int minutes = 00;
