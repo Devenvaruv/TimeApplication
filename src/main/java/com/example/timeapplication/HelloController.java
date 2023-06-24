@@ -13,8 +13,10 @@ public class HelloController {
     @FXML
     protected void onStartButtonClick() {
         timerLogic timerlogic = new timerLogic();
-            timerField.setText(String.valueOf(timerlogic.getHours()) + ":" + String.valueOf(timerlogic.getMinutes()) + ":" + String.valueOf(timerlogic.getSeconds()));
-            timerLogic.start();
+
+        timerField.setText(String.format("%02d:%02d:%02d", timerlogic.hours, timerlogic.minutes, timerlogic.seconds));
+
+
 
     }
     @FXML
@@ -23,7 +25,7 @@ public class HelloController {
        int i = 1;
        for (int j = 0;j < i; j++){
            timerField.setText("timerLogic.end()");
-           timerlogic.end();
+
 
        }
 
