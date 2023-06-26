@@ -22,7 +22,7 @@ public class timerLogic extends TimerTask {
         //System.out.printf("TIME: %02d:%02d:%02d\n", hours, minutes, seconds);
     }
 
-    public static void main(String[] args) {
+    public static void mainRun() {
         Timer timer = new Timer();
         timerLogic task = new timerLogic();
         timer.schedule(task, 0, 1000);
