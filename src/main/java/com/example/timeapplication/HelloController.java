@@ -11,7 +11,9 @@ import java.util.TimerTask;
 
 
     public class HelloController {
-        boolean switcher = true;
+        private Timer timer;
+        private timerLogic task;
+        private boolean switcher;
 
 
 
@@ -20,22 +22,23 @@ import java.util.TimerTask;
 
         @FXML
         protected void onStartButtonClick() {
-            Timer timer = new Timer();
-            timerLogic task = new timerLogic();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    if (switcher) {
+            if (switcher) {
+                // Pause the timer
+                timer.cancel();
+            } else {
+                // Start or resume the timer
+                timer = new Timer();
+                task = new timerLogic();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
                         task.runner();
                         Platform.runLater(() -> {
                             timerField.setText(String.format("%02d:%02d:%02d", task.hours, task.minutes, task.seconds));
                         });
-                    } else if (true) {
-                        timer.cancel();
-
                     }
-                }
-            }, 0, 1000);
+                }, 0, 1000);
+            }
 
             switcher = !switcher;
         }
