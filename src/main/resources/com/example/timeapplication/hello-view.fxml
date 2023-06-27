@@ -7,9 +7,40 @@
 
 
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+
 <FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.timeapplication.HelloController">
-    <Button text="Start/pause" onAction="#onStartButtonClick"/>
-    <Label fx:id="timerField">00:00:00</Label>
-    <Button text="End" onAction="#onEndButtonClick"/>
+    <VBox>
+        <HBox>
+            <Button text="Start/pause" onAction="#onStartButtonClick"/>
+            <Label fx:id="timerField">00:00:00</Label>
+            <Button text="End" onAction="#onEndButtonClick"/>
+        </HBox>
+        <HBox>
+            <Label text="Goal:"/>
+            <TextField promptText="Enter?"/>
+        </HBox>
+        <HBox>
+            <Label text="Note:"/>
+            <TextField promptText="Enter"/>
+        </HBox>
+    </VBox>
+    <VBox>
+        <HBox>
+            <Button text="Start/pause" onAction="#onStartButtonClick"/>
+            <Label fx:id="timerField2">00:00:00</Label>
+            <Button text="End" onAction="#onEndButtonClick"/>
+        </HBox>
+        <HBox>
+            <Label text="Goal:"/>
+            <TextField promptText="Enter?"/>
+        </HBox>
+        <HBox>
+            <Label text="Note:"/>
+            <TextField promptText="Enter"/>
+        </HBox>
+    </VBox>
+
 </FlowPane>

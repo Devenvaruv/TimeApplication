@@ -14,7 +14,6 @@ import java.util.TimerTask;
         private Timer timer;
         private timerLogic task;
         private boolean switcher;
-        private boolean switcher2 = true;
         private int tempSeconds = 0;
         private int tempMinutes = 0;
         private int tempHours = 0;
@@ -23,6 +22,9 @@ import java.util.TimerTask;
 
         @FXML
         private Label timerField;
+
+        @FXML
+        private Label timerField2;
 
         @FXML
         protected void onStartButtonClick() {
