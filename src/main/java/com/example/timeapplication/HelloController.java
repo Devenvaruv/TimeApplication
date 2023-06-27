@@ -14,7 +14,7 @@ import java.util.TimerTask;
         private Timer timer;
         private timerLogic task;
         private boolean switcher;
-        private boolean switcher2;
+        private boolean switcher2 = true;
         private int tempSeconds = 0;
         private int tempMinutes = 0;
         private int tempHours = 0;
@@ -33,9 +33,15 @@ import java.util.TimerTask;
                 tempHours = tempHours + task.hours;
                 // Pause the timer
                 timer.cancel();
+
+
+
             }
-            if(!switcher || !switcher2) {
-                switcher2 = true;
+            if(!switcher) {
+//                if(!switcher2){
+//                    switcher2 = true;
+//                    switcher =!switcher;
+//                }
                 // Start or resume the timer
                 System.out.println("here is timer resume/start located");
                 timer = new Timer();
@@ -64,10 +70,7 @@ import java.util.TimerTask;
                 tempHours = 0;
                 timer.cancel();
                 timerField.setText(String.format("%02d:%02d:%02d", 0, 0, 0));
-                //switcher = !switcher;
-                switcher2 = false;
+                switcher = false;
             }
-
-
         }
     }
