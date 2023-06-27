@@ -14,6 +14,7 @@ import java.util.TimerTask;
         private Timer timer;
         private timerLogic task;
         private boolean switcher;
+        private boolean switcher2;
         private int tempSeconds = 0;
         private int tempMinutes = 0;
         private int tempHours = 0;
@@ -26,24 +27,24 @@ import java.util.TimerTask;
         @FXML
         protected void onStartButtonClick() {
             if (switcher) {
-                System.out.println("here is timer.cancle located" + switcher);
+                System.out.println("here is timer.cancel located");
                 tempSeconds = tempSeconds + task.seconds;
                 tempMinutes = tempMinutes + task.minutes;
                 tempHours = tempHours + task.hours;
                 // Pause the timer
                 timer.cancel();
-            } else {
+            }
+            if(!switcher || !switcher2) {
+                switcher2 = true;
                 // Start or resume the timer
-                System.out.println("here is timer resume/start located" + switcher);
+                System.out.println("here is timer resume/start located");
                 timer = new Timer();
                 task = new timerLogic();
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         task.runner();
-                        Platform.runLater(() -> {
-                            timerField.setText(String.format("%02d:%02d:%02d", task.hours, task.minutes, task.seconds + tempSeconds));
-                        });
+                        Platform.runLater(() -> timerField.setText(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds)));
                     }
                 }, 0, 1000);
             }
@@ -53,7 +54,20 @@ import java.util.TimerTask;
 
         @FXML
         protected void onEndButtonClick() {
-           timer.cancel();
+            if(task.seconds != 0 || tempSeconds != 0) {
+                System.out.println("End Button is Pressed");
+                task.seconds = 0;
+                task.minutes = 0;
+                task.hours = 0;
+                tempSeconds = 0;
+                tempMinutes = 0;
+                tempHours = 0;
+                timer.cancel();
+                timerField.setText(String.format("%02d:%02d:%02d", 0, 0, 0));
+                //switcher = !switcher;
+                switcher2 = false;
+            }
+
 
         }
     }
