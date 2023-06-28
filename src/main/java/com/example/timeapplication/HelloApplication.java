@@ -13,6 +13,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -48,7 +50,7 @@ class ExcelDataWriter {
 
             // Set cell values in the new row
             Cell cell1 = newRow.createCell(0);
-            cell1.setCellValue("Value 1");
+            cell1.setCellValue(LocalDateTime.now());
 
             Cell cell2 = newRow.createCell(1);
             cell2.setCellValue("Value 2");
