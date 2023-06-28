@@ -18,7 +18,6 @@ public class timerLogic {
             }
         }
         seconds++;
-        //System.out.printf("TIME: %02d:%02d:%02d\n", hours, minutes, seconds);
     }
 
 }
