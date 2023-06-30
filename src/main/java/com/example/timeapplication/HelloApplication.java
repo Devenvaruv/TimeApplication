@@ -56,7 +56,7 @@ class ExcelDataWriter {
             cell2.setCellValue("Value 2");
 
             Cell cell3 = newRow.createCell(2);
-            cell3.setCellValue("Value 32");
+            cell3.setCellValue("Value 322");
 
             // Save the changes to the Excel file
             try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
