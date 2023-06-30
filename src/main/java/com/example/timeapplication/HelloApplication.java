@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         System.out.println("custom start?? //pog");
-        ExcelDataWriter.exceler(0);
+        ExcelDataWriter.exceler("0");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Timer");
@@ -35,7 +35,7 @@ public class HelloApplication extends Application {
 class ExcelDataWriter {
     static HelloController controllers = new HelloController();
 
-    public static void exceler(int secs) {
+    public static void exceler(String secs) {
         String filePath = "C:/poiexcel/Writesheet.xlsx";
         String sheetName = " Employee Info ";
 

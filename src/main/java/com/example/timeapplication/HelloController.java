@@ -43,7 +43,7 @@ public class HelloController {
             tempMinutes = tempMinutes + task.minutes;
             tempHours = tempHours + task.hours;
             System.out.println(tempSeconds);
-            ExcelDataWriter.exceler(tempSeconds);
+            ExcelDataWriter.exceler(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
             // Pause the timer
             timer.cancel();
 
