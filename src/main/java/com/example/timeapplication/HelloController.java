@@ -14,10 +14,9 @@ public class HelloController {
     private Timer timer;
     private timerLogic task;
     private boolean switcher;
-    private int tempSeconds = 0;
+    public int tempSeconds = 0;
     private int tempMinutes = 0;
     private int tempHours = 0;
-
     @FXML
     private TextField goalTextField;
 
@@ -43,8 +42,11 @@ public class HelloController {
             tempSeconds = tempSeconds + task.seconds;
             tempMinutes = tempMinutes + task.minutes;
             tempHours = tempHours + task.hours;
+            System.out.println(tempSeconds);
+            ExcelDataWriter.exceler(tempSeconds);
             // Pause the timer
             timer.cancel();
+
         }
 
         if (!switcher) {

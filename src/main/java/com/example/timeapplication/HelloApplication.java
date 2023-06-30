@@ -18,7 +18,8 @@ import java.time.LocalDateTime;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println("custom start?? //pogs");
+        System.out.println("custom start?? //pog");
+        ExcelDataWriter.exceler(0);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Timer");
@@ -32,8 +33,9 @@ public class HelloApplication extends Application {
 }
 
 class ExcelDataWriter {
+    static HelloController controllers = new HelloController();
 
-    public static void main(String[] args) {
+    public static void exceler(int secs) {
         String filePath = "C:/poiexcel/Writesheet.xlsx";
         String sheetName = " Employee Info ";
 
@@ -53,7 +55,7 @@ class ExcelDataWriter {
             cell1.setCellValue(LocalDateTime.now());
 
             Cell cell2 = newRow.createCell(1);
-            cell2.setCellValue("Value 2");
+            cell2.setCellValue(secs);
 
             Cell cell3 = newRow.createCell(2);
             cell3.setCellValue("Value 322");
