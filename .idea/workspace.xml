@@ -55,7 +55,7 @@
       <recent name="C:\Users\varud\IdeaProjects\TimeApplication\src\main\java" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="ExcelDataWriter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.timeapplication.ExcelDataWriter" />
       <module name="TimeApplication" />
