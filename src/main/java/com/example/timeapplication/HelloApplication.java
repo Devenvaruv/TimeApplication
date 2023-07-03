@@ -58,7 +58,7 @@ class ExcelDataWriter {
             cell2.setCellValue(secs);
 
             Cell cell3 = newRow.createCell(2);
-            cell3.setCellValue("Value to be inserted");
+            cell3.setCellValue("Value to be inserted lazy");
 
             // Save the changes to the Excel file
             try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
