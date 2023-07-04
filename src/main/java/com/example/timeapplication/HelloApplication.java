@@ -1,8 +1,10 @@
 package com.example.timeapplication;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import org.apache.poi.ss.usermodel.*;
@@ -33,11 +35,16 @@ public class HelloApplication extends Application {
 }
 
 class ExcelDataWriter {
-    static HelloController controllers = new HelloController();
+
+    static HelloController hellocontroller = new HelloController();
+
+    @FXML
+    public static TextField goalTextField;
 
     public static void exceler(String secs) {
         String filePath = "C:/poiexcel/Writesheet.xlsx";
         String sheetName = " Employee Info ";
+        //hellocontroller.forGoalTextField();
 
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
@@ -52,13 +59,13 @@ class ExcelDataWriter {
 
             // Set cell values in the new row
             Cell cell1 = newRow.createCell(0);
-            cell1.setCellValue(LocalDateTime.now());
+            cell1.setCellValue("Goal:");
 
             Cell cell2 = newRow.createCell(1);
-            cell2.setCellValue(secs);
+            cell2.setCellValue(LocalDateTime.now());
 
             Cell cell3 = newRow.createCell(2);
-            cell3.setCellValue("Value to be inserted still lazy");
+            cell3.setCellValue(secs);
 
             // Save the changes to the Excel file
             try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {

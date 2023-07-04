@@ -21,7 +21,7 @@ public class HelloController {
     private TextField goalTextField;
 
     @FXML
-    protected void forGoalTextField() {
+    public void forGoalTextField() {
         goalTextField.setText("hello stupid");
         goalTextField.setPromptText("hello cockroach");
 
@@ -44,6 +44,9 @@ public class HelloController {
             tempHours = tempHours + task.hours;
             System.out.println(tempSeconds);
             ExcelDataWriter.exceler(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
+            //ExcelDataWriter.exceler(String.valueOf(task.seconds + tempSeconds));
+            ExcelDataWriter.exceler(String.format(goalTextField.getText()));
+
             // Pause the timer
             timer.cancel();
 
