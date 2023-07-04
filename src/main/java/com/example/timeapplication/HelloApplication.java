@@ -16,6 +16,7 @@ import java.io.IOException;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class HelloApplication extends Application {
     @Override
@@ -38,10 +39,14 @@ class ExcelDataWriter {
 
     static HelloController hellocontroller = new HelloController();
 
+
     @FXML
     public static TextField goalTextField;
 
     public static void exceler(String secs) {
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
         String filePath = "C:/poiexcel/Writesheet.xlsx";
         String sheetName = " Employee Info ";
         //hellocontroller.forGoalTextField();
@@ -59,10 +64,11 @@ class ExcelDataWriter {
 
             // Set cell values in the new row
             Cell cell1 = newRow.createCell(0);
-            cell1.setCellValue("Goal:");
+            cell1.setCellValue("Goal:1");
+
 
             Cell cell2 = newRow.createCell(1);
-            cell2.setCellValue(LocalDateTime.now());
+            cell2.setCellValue(dateTime.format(formatter));
 
             Cell cell3 = newRow.createCell(2);
             cell3.setCellValue(secs);
