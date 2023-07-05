@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -19,19 +20,47 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class HelloApplication extends Application {
+
+
+    @FXML
+    private TextField goalTextField;
+
+    @FXML
+    public Label test1 = new Label();
+
+    @FXML
+    public void forTest1(){
+        test1.setText("what the fuck did you say to me");
+    }
+
+
+
+
     @Override
     public void start(Stage stage) throws IOException {
         System.out.println("custom start?? //pog");
-        ExcelDataWriter.exceler("0");
+
+        //ExcelDataWriter.retrieveDataFromExcel();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Timer");
         stage.setScene(scene);
         stage.show();
+
+        //ExcelDataWriter.exceler("0");
+//        if(ExcelDataWriter.retrieveDataFromExcel() != null){
+//            HelloController hell = new HelloController();
+//            //hell.forGoalTextField();
+//
+//            forTest1();
+//
+//            System.out.println(ExcelDataWriter.retrieveDataFromExcel());
+//        }
     }
 
     public static void main(String[] args) {
         launch();
+
     }
 }
 
@@ -84,4 +113,42 @@ class ExcelDataWriter {
             e.printStackTrace();
         }
     }
+
+    public static String retrieveDataFromExcel() {
+        String filePath = "C:/poiexcel/Writesheet.xlsx";
+        String sheetName = " Employee Info ";
+
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
+
+            Sheet sheet = workbook.getSheet(sheetName);
+
+            // Get the last row with data
+            int lastRowIndex = sheet.getLastRowNum();
+
+            // Assuming the data you want to retrieve is in the last row
+            Row lastRow = sheet.getRow(lastRowIndex);
+
+            // Assuming the goal is in the first cell of the row
+            Cell goalCell = lastRow.getCell(0);
+            String goal = goalCell.getStringCellValue();
+
+            // Assuming the time is in the second cell of the row
+            Cell timeCell = lastRow.getCell(1);
+            String time = timeCell.getStringCellValue();
+
+            // Assuming the secs value is in the third cell of the row
+            Cell secsCell = lastRow.getCell(2);
+            String secs = secsCell.getStringCellValue();
+
+            // Return the retrieved data
+            return "Goal: " + goal + ", Time: " + time + ", Secs: " + secs;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

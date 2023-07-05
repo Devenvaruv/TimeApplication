@@ -19,7 +19,7 @@
             <Button text="End" onAction="#onEndButtonClick"/>
         </HBox>
         <HBox>
-            <Label text="Goal:"/>
+            <Label fx:id="text1" text="Goal:"/>
             <TextField fx:id="goalTextField" onAction="#forGoalTextField" promptText="Enter?"/>
         </HBox>
         <HBox>

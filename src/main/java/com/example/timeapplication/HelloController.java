@@ -3,22 +3,43 @@ package com.example.timeapplication;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import com.example.resuable.*;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HelloController {
+public class HelloController implements Initializable {
     private Timer timer;
     private timerLogic task;
     private boolean switcher;
     public int tempSeconds = 0;
     private int tempMinutes = 0;
     private int tempHours = 0;
+
     @FXML
     private TextField goalTextField;
+
+    @FXML
+    public Label test1;
+
+    @FXML
+    public void forTest1(){
+        test1.setText("what");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        goalTextField.setText(ExcelDataWriter.goal);
+
+    }
+
+
+
 
     @FXML
     public void forGoalTextField() {
@@ -83,4 +104,6 @@ public class HelloController {
             switcher = false;
         }
     }
+
+
 }
