@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="Local time Logic">
+    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="program remembers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloController.java" afterDir="false" />
@@ -324,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688510073707</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="program remembers">
+      <created>1688517735970</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1688517735970</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -349,7 +356,8 @@
     <MESSAGE value="excel Working" />
     <MESSAGE value="Excel Time Formatted" />
     <MESSAGE value="Local time Logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Local time Logic" />
+    <MESSAGE value="program remembers" />
+    <option name="LAST_COMMIT_MESSAGE" value="program remembers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

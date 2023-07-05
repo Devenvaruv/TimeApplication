@@ -27,33 +27,25 @@ public class HelloController implements Initializable {
     @FXML
     public Label test1;
 
-    @FXML
-    public void forTest1(){
-        test1.setText("what");
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        goalTextField.setText(ExcelDataWriter.goal);
+        goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
+        timerField.setText(ExcelDataWriter.retrieveTimeDataFromExcel());
+
 
     }
-
-
-
-
-    @FXML
-    public void forGoalTextField() {
-        goalTextField.setText("hello stupid");
-        goalTextField.setPromptText("hello cockroach");
-
-    }
-
 
     @FXML
     private Label timerField;
 
     @FXML
     private Label timerField2;
+
+    @FXML
+    protected void setGoalTextField() {
+        String namer = goalTextField.getText();
+        ExcelDataWriter.setGoalTextFieldExcel(namer);
+    }
 
     @FXML
     protected void onStartButtonClick() {
@@ -66,7 +58,7 @@ public class HelloController implements Initializable {
             System.out.println(tempSeconds);
             ExcelDataWriter.exceler(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
             //ExcelDataWriter.exceler(String.valueOf(task.seconds + tempSeconds));
-            ExcelDataWriter.exceler(String.format(goalTextField.getText()));
+            //ExcelDataWriter.exceler(String.format(goalTextField.getText()));
 
             // Pause the timer
             timer.cancel();
