@@ -14,6 +14,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class HelloController implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
+        timerField.setText(ExcelDataWriter.getTimerFieldLabelExcel());
+
+    }
+
     private Timer timer;
     private timerLogic task;
     private boolean switcher;
@@ -22,24 +29,10 @@ public class HelloController implements Initializable {
     private int tempHours = 0;
 
     @FXML
-    private TextField goalTextField;
-
-    @FXML
-    public Label test1;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
-        timerField.setText(ExcelDataWriter.getTimerFieldLabelExcel());
-
-
-    }
-
-    @FXML
     private Label timerField;
 
     @FXML
-    private Label timerField2;
+    private TextField goalTextField;
 
     @FXML
     protected void setGoalTextField() {
@@ -56,14 +49,10 @@ public class HelloController implements Initializable {
             tempMinutes = tempMinutes + task.minutes;
             tempHours = tempHours + task.hours;
             System.out.println(tempSeconds);
-            //ExcelDataWriter.exceler(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
             ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
-            //ExcelDataWriter.exceler(String.valueOf(task.seconds + tempSeconds));
-            //ExcelDataWriter.exceler(String.format(goalTextField.getText()));
 
             // Pause the timer
             timer.cancel();
-
         }
 
         if (!switcher) {
@@ -84,6 +73,7 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void onEndButtonClick() {
+
         if (task.seconds != 0 || tempSeconds != 0) {
             System.out.println("End Button is Pressed");
             task.seconds = 0;
@@ -97,6 +87,5 @@ public class HelloController implements Initializable {
             switcher = false;
         }
     }
-
 
 }

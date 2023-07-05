@@ -1,23 +1,16 @@
 package com.example.timeapplication;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+
 import javafx.stage.Stage;
 
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class HelloApplication extends Application {
 
@@ -29,8 +22,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Timer");
         stage.setScene(scene);
         stage.show();
-
-        //ExcelDataWriter.exceler("0");
     }
 
     public static void main(String[] args) {
@@ -38,15 +29,11 @@ public class HelloApplication extends Application {
     }
 }
 
+
+
 class ExcelDataWriter {
     static String filePath = "C:/poiexcel/Writesheet.xlsx";
     static String sheetName = " Employee Info ";
-
-    static HelloController hellocontroller = new HelloController();
-
-
-    @FXML
-    public static TextField goalTextField;
 
 //    public static void exceler(String secs) {
 //        LocalDateTime dateTime = LocalDateTime.now();
@@ -158,6 +145,8 @@ class ExcelDataWriter {
             Cell goalCell = lastRow.getCell(0);
             String goal = goalCell.getStringCellValue();
 
+            System.out.println("Goal Data Got successfully.");
+
             // Return the retrieved data
             return goal;
 
@@ -185,8 +174,12 @@ class ExcelDataWriter {
             Cell goalCell = lastRow.getCell(1);
 
             String timerField = goalCell.getStringCellValue();
+
+            System.out.println("Timer Data Got successfully.");
             // Return the retrieved data
             return String.valueOf(timerField);
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
