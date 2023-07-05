@@ -30,7 +30,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
-        timerField.setText(ExcelDataWriter.retrieveTimeDataFromExcel());
+        timerField.setText(ExcelDataWriter.getTimerFieldLabelExcel());
 
 
     }
@@ -56,7 +56,8 @@ public class HelloController implements Initializable {
             tempMinutes = tempMinutes + task.minutes;
             tempHours = tempHours + task.hours;
             System.out.println(tempSeconds);
-            ExcelDataWriter.exceler(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
+            //ExcelDataWriter.exceler(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
+            ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
             //ExcelDataWriter.exceler(String.valueOf(task.seconds + tempSeconds));
             //ExcelDataWriter.exceler(String.format(goalTextField.getText()));
 

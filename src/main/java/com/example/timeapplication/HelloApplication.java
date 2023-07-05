@@ -30,7 +30,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        ExcelDataWriter.exceler("0");
+        //ExcelDataWriter.exceler("0");
     }
 
     public static void main(String[] args) {
@@ -48,39 +48,39 @@ class ExcelDataWriter {
     @FXML
     public static TextField goalTextField;
 
-    public static void exceler(String secs) {
-        LocalDateTime dateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-
-
-        try (FileInputStream fileInputStream = new FileInputStream(filePath);
-             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
-
-            Sheet sheet = workbook.getSheet(sheetName);
-
-            // Determine the row index where you want to add the new data
-            int rowIndex = sheet.getLastRowNum() + 1;
-
-            // Create a new row
-            Row newRow = sheet.createRow(rowIndex);
-
-            Cell cell2 = newRow.createCell(1);
-            cell2.setCellValue(dateTime.format(formatter));
-
-            Cell cell3 = newRow.createCell(2);
-            cell3.setCellValue(secs);
-
-            // Save the changes to the Excel file
-            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
-                workbook.write(fileOutputStream);
-            }
-
-            System.out.println("Data added successfully.");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void exceler(String secs) {
+//        LocalDateTime dateTime = LocalDateTime.now();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//
+//
+//        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+//             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
+//
+//            Sheet sheet = workbook.getSheet(sheetName);
+//
+//            // Determine the row index where you want to add the new data
+//            int rowIndex = sheet.getLastRowNum() + 1;
+//
+//            // Create a new row
+//            Row newRow = sheet.createRow(rowIndex);
+//
+//            Cell cell2 = newRow.createCell(1);
+//            cell2.setCellValue(dateTime.format(formatter));
+//
+//            Cell cell3 = newRow.createCell(2);
+//            cell3.setCellValue(secs);
+//
+//            // Save the changes to the Excel file
+//            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
+//                workbook.write(fileOutputStream);
+//            }
+//
+//            System.out.println("Data added successfully.");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static void setGoalTextFieldExcel(String goal) {
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
@@ -104,7 +104,36 @@ class ExcelDataWriter {
                 workbook.write(fileOutputStream);
             }
 
-            System.out.println("Data added successfully.");
+            System.out.println("Goal Data added successfully.");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void setTimerFieldLabelExcel(String timerField) {
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
+
+            Sheet sheet = workbook.getSheet(sheetName);
+
+            // Determine the row index where you want to add the new data
+            int rowIndex = sheet.getLastRowNum() + 1;
+
+            // Create a new row
+            Row newRow = sheet.createRow(rowIndex);
+
+            // Set cell values in the new row
+            Cell cell1 = newRow.createCell(1);
+            cell1.setCellValue(timerField);
+
+
+            // Save the changes to the Excel file
+            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
+                workbook.write(fileOutputStream);
+            }
+
+            System.out.println("Timer Data added successfully.");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,8 +142,6 @@ class ExcelDataWriter {
 
 
     public static String getGoalTextFieldExcel() {
-        String filePath = "C:/poiexcel/Writesheet.xlsx";
-        String sheetName = " Employee Info ";
 
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
@@ -131,8 +158,6 @@ class ExcelDataWriter {
             Cell goalCell = lastRow.getCell(0);
             String goal = goalCell.getStringCellValue();
 
-
-
             // Return the retrieved data
             return goal;
 
@@ -143,9 +168,7 @@ class ExcelDataWriter {
         return null;
     }
 
-    public static String retrieveTimeDataFromExcel() {
-        String filePath = "C:/poiexcel/Writesheet.xlsx";
-        String sheetName = " Employee Info ";
+    public static String getTimerFieldLabelExcel() {
 
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
@@ -160,12 +183,10 @@ class ExcelDataWriter {
 
             // Assuming the goal is in the first cell of the row
             Cell goalCell = lastRow.getCell(1);
-            String time = goalCell.getStringCellValue();
-
-
+            String timerField = goalCell.getStringCellValue();
 
             // Return the retrieved data
-            return time;
+            return timerField;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -173,5 +194,7 @@ class ExcelDataWriter {
 
         return null;
     }
+
+
 
 }
