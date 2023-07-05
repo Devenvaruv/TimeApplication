@@ -183,10 +183,10 @@ class ExcelDataWriter {
 
             // Assuming the goal is in the first cell of the row
             Cell goalCell = lastRow.getCell(1);
-            String timerField = goalCell.getStringCellValue();
 
+            String timerField = goalCell.getStringCellValue();
             // Return the retrieved data
-            return timerField;
+            return String.valueOf(timerField);
 
         } catch (IOException e) {
             e.printStackTrace();

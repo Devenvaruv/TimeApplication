@@ -19,7 +19,7 @@
             <Button text="End" onAction="#onEndButtonClick"/>
         </HBox>
         <HBox>
-            <Label fx:id="text1" text="Goal:"/>
+            <Label text="Goal:"/>
             <TextField fx:id="goalTextField" onAction="#setGoalTextField" promptText="Enter?"/>
         </HBox>
         <HBox>
@@ -27,20 +27,4 @@
             <TextField promptText="Enter"/>
         </HBox>
     </VBox>
-<!--    <VBox>-->
-<!--        <HBox>-->
-<!--            <Button text="Start/pause" onAction="#onStartButtonClick"/>-->
-<!--            <Label fx:id="timerField2">00:00:00</Label>-->
-<!--            <Button text="End" onAction="#onEndButtonClick"/>-->
-<!--        </HBox>-->
-<!--        <HBox>-->
-<!--            <Label text="Goal:"/>-->
-<!--            <TextField fx:id="goalTextField" onAction="#forGoalTextField" promptText="Enter?"/>-->
-<!--        </HBox>-->
-<!--        <HBox>-->
-<!--            <Label text="Note:"/>-->
-<!--            <TextField promptText="Enter"/>-->
-<!--        </HBox>-->
-<!--    </VBox>-->
-
 </FlowPane>

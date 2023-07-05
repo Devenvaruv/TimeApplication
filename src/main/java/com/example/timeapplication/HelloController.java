@@ -43,8 +43,8 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void setGoalTextField() {
-        String namer = goalTextField.getText();
-        ExcelDataWriter.setGoalTextFieldExcel(namer);
+        String updatedGoal = goalTextField.getText();
+        ExcelDataWriter.setGoalTextFieldExcel(updatedGoal);
     }
 
     @FXML
