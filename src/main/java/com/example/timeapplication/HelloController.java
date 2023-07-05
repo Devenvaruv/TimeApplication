@@ -16,8 +16,16 @@ import java.util.TimerTask;
 public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
-        timerField.setText(ExcelDataWriter.getTimerFieldLabelExcel());
+        if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
+            goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
+        }else {
+            goalTextField.setText("");
+        }
+        if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
+            timerField.setText(String.valueOf(ExcelDataWriter.getTimerFieldLabelExcel()));
+        }else {
+            timerField.setText("00:00:00");
+        }
 
     }
 

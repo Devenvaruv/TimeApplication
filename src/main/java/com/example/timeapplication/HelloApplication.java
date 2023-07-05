@@ -98,7 +98,7 @@ class ExcelDataWriter {
         }
     }
 
-    public static void setTimerFieldLabelExcel(String timerField) {
+    public static void setTimerFieldLabelExcel(Double timerField) {
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
 
@@ -138,11 +138,18 @@ class ExcelDataWriter {
             // Get the last row with data
             int lastRowIndex = sheet.getLastRowNum();
 
+
             // Assuming the data you want to retrieve is in the last row
             Row lastRow = sheet.getRow(lastRowIndex);
 
             // Assuming the goal is in the first cell of the row
             Cell goalCell = lastRow.getCell(0);
+            System.out.println(lastRowIndex);
+            System.out.println(lastRow);
+            System.out.println(goalCell);
+
+
+
             String goal = goalCell.getStringCellValue();
 
             System.out.println("Goal Data Got successfully.");
@@ -157,7 +164,7 @@ class ExcelDataWriter {
         return null;
     }
 
-    public static String getTimerFieldLabelExcel() {
+    public static double getTimerFieldLabelExcel() {
 
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
@@ -173,11 +180,11 @@ class ExcelDataWriter {
             // Assuming the goal is in the first cell of the row
             Cell goalCell = lastRow.getCell(1);
 
-            String timerField = goalCell.getStringCellValue();
+            double timerField = goalCell.getNumericCellValue();
 
             System.out.println("Timer Data Got successfully.");
             // Return the retrieved data
-            return String.valueOf(timerField);
+            return timerField;
 
 
 
@@ -185,7 +192,7 @@ class ExcelDataWriter {
             e.printStackTrace();
         }
 
-        return null;
+        return 0.0;
     }
 
 
