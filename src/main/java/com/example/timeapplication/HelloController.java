@@ -16,6 +16,7 @@ import java.util.TimerTask;
 public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tempSeconds =  + Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(6,8));
         if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
             goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
         }else {
@@ -26,13 +27,12 @@ public class HelloController implements Initializable {
         }else {
             timerField.setText("00:00:00");
         }
-
     }
 
     private Timer timer;
     private timerLogic task;
     private boolean switcher;
-    public int tempSeconds = 0;
+    public int tempSeconds;
     public int tempMinutes = 0;
     public int tempHours = 0;
 
@@ -57,7 +57,8 @@ public class HelloController implements Initializable {
             tempMinutes = tempMinutes + task.minutes;
             tempHours = tempHours + task.hours;
             System.out.println(tempSeconds);
-            ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
+            //ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
+            ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds));
 
             // Pause the timer
             timer.cancel();

@@ -187,6 +187,10 @@ class ExcelDataWriter {
 
             String timerField;
 
+            if( goalCell == null){
+                return "00:00:00";
+            }
+
             if (goalCell.getCellType() == CellType.NUMERIC){
                 double numericValue = goalCell.getNumericCellValue();
                 timerField = String.valueOf(numericValue);
@@ -197,6 +201,7 @@ class ExcelDataWriter {
             System.out.println("Timer Data Got successfully.");
             // Return the retrieved data
             return timerField;
+
 
         } catch (IOException e) {
             e.printStackTrace();
