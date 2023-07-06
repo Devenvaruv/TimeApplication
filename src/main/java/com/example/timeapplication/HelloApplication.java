@@ -131,6 +131,43 @@ class ExcelDataWriter {
         }
     }
 
+    public static void setBothFieldLabelExcel(String timerField, String goal) {
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
+
+            Sheet sheet = workbook.getSheet(sheetName);
+
+            // Determine the row index where you want to add the new data
+            int rowIndex = sheet.getLastRowNum() + 1;
+
+            // Create a new row
+            Row newRow = sheet.createRow(rowIndex);
+
+            Cell cell0 = newRow.createCell(0);
+            cell0.setCellValue(goal);
+
+            // Set cell values in the new row
+            Cell cell1 = newRow.createCell(1);
+            cell1.setCellValue(timerField);
+
+            CellStyle style = workbook.createCellStyle();
+            DataFormat format = workbook.createDataFormat();
+            style.setDataFormat(format.getFormat("@"));
+            cell1.setCellStyle(style);
+
+            // Save the changes to the Excel file
+            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
+                workbook.write(fileOutputStream);
+            }
+
+            System.out.println("Timer and Goal Data added successfully.");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static String getGoalTextFieldExcel() {
 
         try (FileInputStream fileInputStream = new FileInputStream(filePath);

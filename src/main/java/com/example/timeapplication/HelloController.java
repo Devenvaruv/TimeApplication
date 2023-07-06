@@ -16,7 +16,7 @@ import java.util.TimerTask;
 public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tempSeconds =  + Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(6,8));
+        tempSeconds = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(6,8));
         if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
             goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
         }else {
@@ -45,7 +45,8 @@ public class HelloController implements Initializable {
     @FXML
     protected void setGoalTextField() {
         String updatedGoal = goalTextField.getText();
-        ExcelDataWriter.setGoalTextFieldExcel(updatedGoal);
+        //ExcelDataWriter.setGoalTextFieldExcel(updatedGoal);
+        ExcelDataWriter.setBothFieldLabelExcel(ExcelDataWriter.getTimerFieldLabelExcel(), updatedGoal);
     }
 
     @FXML
@@ -57,8 +58,8 @@ public class HelloController implements Initializable {
             tempMinutes = tempMinutes + task.minutes;
             tempHours = tempHours + task.hours;
             System.out.println(tempSeconds);
-            //ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds));
-            ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds));
+            //ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds));
+            ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds), ExcelDataWriter.getGoalTextFieldExcel());
 
             // Pause the timer
             timer.cancel();
