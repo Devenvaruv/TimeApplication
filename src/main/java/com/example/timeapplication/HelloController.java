@@ -67,6 +67,13 @@ public class HelloController implements Initializable {
 
         if (!switcher) {
             System.out.println("here is timer resume/start located");
+            if(tempSeconds >= 60){
+                tempSeconds = 0;
+                if(task.seconds != 0){
+                    task.seconds = 0;
+                }
+                tempMinutes++;
+            }
             timer = new Timer();
             task = new timerLogic();
             timer.schedule(new TimerTask() {
