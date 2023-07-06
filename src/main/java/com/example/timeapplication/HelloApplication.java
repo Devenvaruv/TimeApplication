@@ -98,7 +98,7 @@ class ExcelDataWriter {
         }
     }
 
-    public static void setTimerFieldLabelExcel(Double timerField) {
+    public static void setTimerFieldLabelExcel(String timerField) {
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
 
@@ -114,6 +114,10 @@ class ExcelDataWriter {
             Cell cell1 = newRow.createCell(1);
             cell1.setCellValue(timerField);
 
+            CellStyle style = workbook.createCellStyle();
+            DataFormat format = workbook.createDataFormat();
+            style.setDataFormat(format.getFormat("@"));
+            cell1.setCellStyle(style);
 
             // Save the changes to the Excel file
             try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
@@ -126,7 +130,6 @@ class ExcelDataWriter {
             e.printStackTrace();
         }
     }
-
 
     public static String getGoalTextFieldExcel() {
 
@@ -144,13 +147,15 @@ class ExcelDataWriter {
 
             // Assuming the goal is in the first cell of the row
             Cell goalCell = lastRow.getCell(0);
-            System.out.println(lastRowIndex);
-            System.out.println(lastRow);
-            System.out.println(goalCell);
-
-
+//            System.out.println(lastRowIndex);
+//            System.out.println(lastRow);
+//            System.out.println(goalCell);
+            if (goalCell == null) {
+                return "";
+            }
 
             String goal = goalCell.getStringCellValue();
+
 
             System.out.println("Goal Data Got successfully.");
 
@@ -164,7 +169,7 @@ class ExcelDataWriter {
         return null;
     }
 
-    public static double getTimerFieldLabelExcel() {
+    public static String getTimerFieldLabelExcel() {
 
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
@@ -180,21 +185,24 @@ class ExcelDataWriter {
             // Assuming the goal is in the first cell of the row
             Cell goalCell = lastRow.getCell(1);
 
-            double timerField = goalCell.getNumericCellValue();
+            String timerField;
+
+            if (goalCell.getCellType() == CellType.NUMERIC){
+                double numericValue = goalCell.getNumericCellValue();
+                timerField = String.valueOf(numericValue);
+            } else {
+                timerField = goalCell.getStringCellValue();
+            }
 
             System.out.println("Timer Data Got successfully.");
             // Return the retrieved data
             return timerField;
 
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return 0.0;
+        return null;
     }
-
-
 
 }

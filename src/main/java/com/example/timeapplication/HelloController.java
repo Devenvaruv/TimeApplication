@@ -33,8 +33,8 @@ public class HelloController implements Initializable {
     private timerLogic task;
     private boolean switcher;
     public int tempSeconds = 0;
-    private int tempMinutes = 0;
-    private int tempHours = 0;
+    public int tempMinutes = 0;
+    public int tempHours = 0;
 
     @FXML
     private Label timerField;
