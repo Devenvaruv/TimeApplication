@@ -5,7 +5,6 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import com.example.resuable.*;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -16,7 +15,9 @@ import java.util.TimerTask;
 public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tempSeconds = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(6,8));
+        seconds = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(6,8));
+        minutes = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(3,5));
+        hours = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(0,2));
         if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
             goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
         }else {
@@ -31,9 +32,6 @@ public class HelloController implements Initializable {
 
     private Timer timer;
     private boolean switcher;
-    public int tempSeconds;
-    public int tempMinutes = 0;
-    public int tempHours = 0;
     public int seconds = 0;
     public int minutes = 0;
     public int hours = 0;
@@ -55,35 +53,28 @@ public class HelloController implements Initializable {
     protected void onStartButtonClick() {
 
         if (switcher) {
-            System.out.println("here is timer.cancel located");
-            tempSeconds = tempSeconds + seconds;
-            tempMinutes = tempMinutes + minutes;
-            tempHours = tempHours + hours;
-            System.out.println(tempSeconds);
+            System.out.println("here clock is paused");
+            //tempSeconds = tempSeconds + seconds;
+            //tempMinutes = tempMinutes + minutes;
+            //tempHours = tempHours + hours;
+            System.out.println(seconds);
             //ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds));
-            ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds), ExcelDataWriter.getGoalTextFieldExcel());
+            ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",hours,minutes,seconds), ExcelDataWriter.getGoalTextFieldExcel());
 
             // Pause the timer
             timer.cancel();
         }
 
         if (!switcher) {
-            System.out.println("here is timer resume/startin located");
-            if(tempSeconds >= 60){
-                tempSeconds = 0;
-                if(seconds != 0){
-                    seconds = 0;
-                }
-                tempMinutes++;
-            }
+            System.out.println("here clock is started");
             timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     myTimer();
-                    Platform.runLater(() -> timerField.setText(String.format("%02d:%02d:%02d", hours + tempHours, minutes + tempMinutes, seconds + tempSeconds)));
+                    Platform.runLater(() -> timerField.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds)));
                 }
-            }, 0, 1000);
+            }, 0, 100);
         }
 
         switcher = !switcher;
@@ -92,14 +83,11 @@ public class HelloController implements Initializable {
     @FXML
     protected void onEndButtonClick() {
 
-        if (seconds != 0 || tempSeconds != 0) {
+        if (seconds != 0) {
             System.out.println("End Button is Pressed");
             seconds = 0;
             minutes = 0;
             hours = 0;
-            tempSeconds = 0;
-            tempMinutes = 0;
-            tempHours = 0;
             timer.cancel();
             timerField.setText(String.format("%02d:%02d:%02d", 0, 0, 0));
             switcher = false;
@@ -107,14 +95,14 @@ public class HelloController implements Initializable {
     }
 
     public void myTimer() {
-        if (seconds >= 60) {
-            if (minutes >= 60) {
+        if (seconds >= 59) {
+            if (minutes >= 59) {
                 hours++;
                 minutes = 0;
             }
             minutes++;
             seconds = 0;
-            if (hours >= 24) {
+            if (hours >= 23) {
                 hours = 0;
             }
         }

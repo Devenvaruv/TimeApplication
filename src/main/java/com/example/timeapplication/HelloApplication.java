@@ -220,19 +220,19 @@ class ExcelDataWriter {
             Row lastRow = sheet.getRow(lastRowIndex);
 
             // Assuming the goal is in the first cell of the row
-            Cell goalCell = lastRow.getCell(1);
+            Cell timerCell = lastRow.getCell(1);
 
             String timerField;
 
-            if( goalCell == null){
+            if( timerCell == null){
                 return "00:00:00";
             }
 
-            if (goalCell.getCellType() == CellType.NUMERIC){
-                double numericValue = goalCell.getNumericCellValue();
+            if (timerCell.getCellType() == CellType.NUMERIC){
+                double numericValue = timerCell.getNumericCellValue();
                 timerField = String.valueOf(numericValue);
             } else {
-                timerField = goalCell.getStringCellValue();
+                timerField = timerCell.getStringCellValue();
             }
 
             System.out.println("Timer Data Got successfully.");
