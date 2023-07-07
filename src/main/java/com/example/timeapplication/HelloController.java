@@ -30,11 +30,13 @@ public class HelloController implements Initializable {
     }
 
     private Timer timer;
-    private timerLogic task;
     private boolean switcher;
     public int tempSeconds;
     public int tempMinutes = 0;
     public int tempHours = 0;
+    public int seconds = 0;
+    public int minutes = 0;
+    public int hours = 0;
 
     @FXML
     private Label timerField;
@@ -54,9 +56,9 @@ public class HelloController implements Initializable {
 
         if (switcher) {
             System.out.println("here is timer.cancel located");
-            tempSeconds = tempSeconds + task.seconds;
-            tempMinutes = tempMinutes + task.minutes;
-            tempHours = tempHours + task.hours;
+            tempSeconds = tempSeconds + seconds;
+            tempMinutes = tempMinutes + minutes;
+            tempHours = tempHours + hours;
             System.out.println(tempSeconds);
             //ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds));
             ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds), ExcelDataWriter.getGoalTextFieldExcel());
@@ -69,18 +71,17 @@ public class HelloController implements Initializable {
             System.out.println("here is timer resume/startin located");
             if(tempSeconds >= 60){
                 tempSeconds = 0;
-                if(task.seconds != 0){
-                    task.seconds = 0;
+                if(seconds != 0){
+                    seconds = 0;
                 }
                 tempMinutes++;
             }
             timer = new Timer();
-            task = new timerLogic();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    task.runner();
-                    Platform.runLater(() -> timerField.setText(String.format("%02d:%02d:%02d", task.hours + tempHours, task.minutes + tempMinutes, task.seconds + tempSeconds)));
+                    myTimer();
+                    Platform.runLater(() -> timerField.setText(String.format("%02d:%02d:%02d", hours + tempHours, minutes + tempMinutes, seconds + tempSeconds)));
                 }
             }, 0, 1000);
         }
@@ -91,11 +92,11 @@ public class HelloController implements Initializable {
     @FXML
     protected void onEndButtonClick() {
 
-        if (task.seconds != 0 || tempSeconds != 0) {
+        if (seconds != 0 || tempSeconds != 0) {
             System.out.println("End Button is Pressed");
-            task.seconds = 0;
-            task.minutes = 0;
-            task.hours = 0;
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
             tempSeconds = 0;
             tempMinutes = 0;
             tempHours = 0;
@@ -104,5 +105,21 @@ public class HelloController implements Initializable {
             switcher = false;
         }
     }
+
+    public void myTimer() {
+        if (seconds >= 60) {
+            if (minutes >= 60) {
+                hours++;
+                minutes = 0;
+            }
+            minutes++;
+            seconds = 0;
+            if (hours >= 24) {
+                hours = 0;
+            }
+        }
+        seconds++;
+    }
+
 
 }
