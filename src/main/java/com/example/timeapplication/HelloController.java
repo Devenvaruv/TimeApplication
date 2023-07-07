@@ -31,7 +31,7 @@ public class HelloController implements Initializable {
     }
 
     private Timer timer;
-    private boolean switcher;
+    private boolean switcher = true;
     public int seconds = 0;
     public int minutes = 0;
     public int hours = 0;
@@ -53,19 +53,6 @@ public class HelloController implements Initializable {
     protected void onStartButtonClick() {
 
         if (switcher) {
-            System.out.println("here clock is paused");
-            //tempSeconds = tempSeconds + seconds;
-            //tempMinutes = tempMinutes + minutes;
-            //tempHours = tempHours + hours;
-            System.out.println(seconds);
-            //ExcelDataWriter.setTimerFieldLabelExcel(String.format("%02d:%02d:%02d",tempHours,tempMinutes,tempSeconds));
-            ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",hours,minutes,seconds), ExcelDataWriter.getGoalTextFieldExcel());
-
-            // Pause the timer
-            timer.cancel();
-        }
-
-        if (!switcher) {
             System.out.println("here clock is started");
             timer = new Timer();
             timer.schedule(new TimerTask() {
@@ -76,6 +63,15 @@ public class HelloController implements Initializable {
                 }
             }, 0, 100);
         }
+        if (!switcher) {
+            System.out.println("here clock is paused");
+            System.out.println(seconds);
+            ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",hours,minutes,seconds), ExcelDataWriter.getGoalTextFieldExcel());
+
+            // Pause the timer
+            timer.cancel();
+        }
+
 
         switcher = !switcher;
     }
@@ -90,7 +86,7 @@ public class HelloController implements Initializable {
             hours = 0;
             timer.cancel();
             timerField.setText(String.format("%02d:%02d:%02d", 0, 0, 0));
-            switcher = false;
+            switcher = true;
         }
     }
 
