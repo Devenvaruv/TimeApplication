@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,15 +16,17 @@ import java.util.TimerTask;
 public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        seconds = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(6,8));
+        seconds = Integer.parseInt(Objects.requireNonNull(ExcelDataWriter.getTimerFieldLabelExcel()).substring(6,8));
         minutes = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(3,5));
         hours = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(0,2));
+
         if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
             goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());
         }else {
             goalTextField.setText("");
         }
-        if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
+
+        if(ExcelDataWriter.getTimerFieldLabelExcel() != null) {
             timerField.setText(String.valueOf(ExcelDataWriter.getTimerFieldLabelExcel()));
         }else {
             timerField.setText("00:00:00");
@@ -45,7 +48,6 @@ public class HelloController implements Initializable {
     @FXML
     protected void setGoalTextField() {
         String updatedGoal = goalTextField.getText();
-        //ExcelDataWriter.setGoalTextFieldExcel(updatedGoal);
         ExcelDataWriter.setBothFieldLabelExcel(ExcelDataWriter.getTimerFieldLabelExcel(), updatedGoal);
     }
 
@@ -61,17 +63,15 @@ public class HelloController implements Initializable {
                     myTimer();
                     Platform.runLater(() -> timerField.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds)));
                 }
-            }, 0, 100);
+            }, 0, 1000);
         }
         if (!switcher) {
             System.out.println("here clock is paused");
             System.out.println(seconds);
             ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",hours,minutes,seconds), ExcelDataWriter.getGoalTextFieldExcel());
-
             // Pause the timer
             timer.cancel();
         }
-
 
         switcher = !switcher;
     }
@@ -104,6 +104,5 @@ public class HelloController implements Initializable {
         }
         seconds++;
     }
-
 
 }

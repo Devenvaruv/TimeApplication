@@ -35,102 +35,6 @@ class ExcelDataWriter {
     static String filePath = "C:/poiexcel/Writesheet.xlsx";
     static String sheetName = " Employee Info ";
 
-//    public static void exceler(String secs) {
-//        LocalDateTime dateTime = LocalDateTime.now();
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//
-//
-//        try (FileInputStream fileInputStream = new FileInputStream(filePath);
-//             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
-//
-//            Sheet sheet = workbook.getSheet(sheetName);
-//
-//            // Determine the row index where you want to add the new data
-//            int rowIndex = sheet.getLastRowNum() + 1;
-//
-//            // Create a new row
-//            Row newRow = sheet.createRow(rowIndex);
-//
-//            Cell cell2 = newRow.createCell(1);
-//            cell2.setCellValue(dateTime.format(formatter));
-//
-//            Cell cell3 = newRow.createCell(2);
-//            cell3.setCellValue(secs);
-//
-//            // Save the changes to the Excel file
-//            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
-//                workbook.write(fileOutputStream);
-//            }
-//
-//            System.out.println("Data added successfully.");
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    public static void setGoalTextFieldExcel(String goal) {
-        try (FileInputStream fileInputStream = new FileInputStream(filePath);
-             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
-
-            Sheet sheet = workbook.getSheet(sheetName);
-
-            // Determine the row index where you want to add the new data
-            int rowIndex = sheet.getLastRowNum() + 1;
-
-            // Create a new row
-            Row newRow = sheet.createRow(rowIndex);
-
-            // Set cell values in the new row
-            Cell cell1 = newRow.createCell(0);
-            cell1.setCellValue(goal);
-
-
-            // Save the changes to the Excel file
-            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
-                workbook.write(fileOutputStream);
-            }
-
-            System.out.println("Goal Data added successfully.");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void setTimerFieldLabelExcel(String timerField) {
-        try (FileInputStream fileInputStream = new FileInputStream(filePath);
-             Workbook workbook = WorkbookFactory.create(fileInputStream)) {
-
-            Sheet sheet = workbook.getSheet(sheetName);
-
-            // Determine the row index where you want to add the new data
-            int rowIndex = sheet.getLastRowNum() + 1;
-
-            // Create a new row
-            Row newRow = sheet.createRow(rowIndex);
-
-            // Set cell values in the new row
-            Cell cell1 = newRow.createCell(1);
-            cell1.setCellValue(timerField);
-
-            CellStyle style = workbook.createCellStyle();
-            DataFormat format = workbook.createDataFormat();
-            style.setDataFormat(format.getFormat("@"));
-            cell1.setCellStyle(style);
-
-            // Save the changes to the Excel file
-            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
-                workbook.write(fileOutputStream);
-            }
-
-            System.out.println("Timer Data added successfully.");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void setBothFieldLabelExcel(String timerField, String goal) {
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = WorkbookFactory.create(fileInputStream)) {
@@ -184,9 +88,7 @@ class ExcelDataWriter {
 
             // Assuming the goal is in the first cell of the row
             Cell goalCell = lastRow.getCell(0);
-//            System.out.println(lastRowIndex);
-//            System.out.println(lastRow);
-//            System.out.println(goalCell);
+
             if (goalCell == null) {
                 return "";
             }
