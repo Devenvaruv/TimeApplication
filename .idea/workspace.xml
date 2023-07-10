@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="NewTimeApplication" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="Clock working with Excel">
+    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="v.1.00">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/NewTimeApplication.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +52,13 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/varud/IdeaProjects/TimeApplication/src/main/java/com/example/timeapplication&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/varud/IdeaProjects/TimeApplication/src/main/java/com/example/timeapplication&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -427,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688771018017</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="v.1.00">
+      <created>1688845499523</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1688845499523</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,7 +474,8 @@
     <MESSAGE value="program remembers" />
     <MESSAGE value="Clean up" />
     <MESSAGE value="Clock working with Excel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clock working with Excel" />
+    <MESSAGE value="v.1.00" />
+    <option name="LAST_COMMIT_MESSAGE" value="v.1.00" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
