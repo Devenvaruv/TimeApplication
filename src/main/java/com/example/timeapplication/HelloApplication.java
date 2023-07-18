@@ -13,10 +13,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+    HelloController hellocon = new HelloController();
+
 
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println("custom");
+        stage.setOnCloseRequest(windowEvent -> {
+            System.out.println("saves data");
+            hellocon.saveOnClose();
+        });
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Timer");

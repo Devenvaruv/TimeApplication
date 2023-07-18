@@ -35,9 +35,9 @@ public class HelloController implements Initializable {
 
     private Timer timer;
     private boolean switcher = true;
-    public int seconds = 0;
-    public int minutes = 0;
-    public int hours = 0;
+    public static int seconds = 0; //I need to figure out how to send the current second count when the program is closed.
+    public static int minutes = 0;// Done made them static
+    public static int hours = 0;
 
     @FXML
     private Label timerField;
@@ -74,6 +74,7 @@ public class HelloController implements Initializable {
         }
 
         switcher = !switcher;
+
     }
 
     @FXML
@@ -103,6 +104,11 @@ public class HelloController implements Initializable {
             }
         }
         seconds++;
+    }
+
+    public void saveOnClose() {
+        ExcelDataWriter.setBothFieldLabelExcel(String.format("%02d:%02d:%02d",hours,minutes,seconds), ExcelDataWriter.getGoalTextFieldExcel());
+        System.out.println(seconds);
     }
 
 }

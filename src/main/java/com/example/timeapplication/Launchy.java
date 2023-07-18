@@ -1,6 +1,6 @@
-import com.example.timeapplication.HelloApplication;
+package com.example.timeapplication;
 
-public class Main_1 {
+public class Launchy {
     public static void main(String[] args){
         HelloApplication.main(args);
     }
