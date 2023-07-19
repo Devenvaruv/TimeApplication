@@ -19,6 +19,7 @@ public class HelloController implements Initializable {
         seconds = Integer.parseInt(Objects.requireNonNull(ExcelDataWriter.getTimerFieldLabelExcel()).substring(6,8));
         minutes = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(3,5));
         hours = Integer.parseInt(ExcelDataWriter.getTimerFieldLabelExcel().substring(0,2));
+        onStartButtonClick();
 
         if(ExcelDataWriter.getGoalTextFieldExcel() != null) {
             goalTextField.setText(ExcelDataWriter.getGoalTextFieldExcel());

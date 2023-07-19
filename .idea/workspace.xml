@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="v.1.00">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/Launchy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/timeapplication/HelloController.java" afterDir="false" />
-    </list>
+    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="startup and closeup" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,13 +158,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686533564610</updated>
-    </task>
-    <task id="LOCAL-00006" summary="feature updated">
-      <created>1687326621838</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1687326621838</updated>
     </task>
     <task id="LOCAL-00007" summary="feature updated">
       <created>1687446728505</created>
@@ -508,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689669474890</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="startup and closeup">
+      <created>1689708559870</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1689708559871</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -548,7 +542,8 @@
     <MESSAGE value="Clean up" />
     <MESSAGE value="Clock working with Excel" />
     <MESSAGE value="v.1.00" />
-    <option name="LAST_COMMIT_MESSAGE" value="v.1.00" />
+    <MESSAGE value="startup and closeup" />
+    <option name="LAST_COMMIT_MESSAGE" value="startup and closeup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
