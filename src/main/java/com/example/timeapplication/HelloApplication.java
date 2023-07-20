@@ -2,8 +2,10 @@ package com.example.timeapplication;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import org.apache.poi.ss.usermodel.*;
@@ -23,10 +25,18 @@ public class HelloApplication extends Application {
             hellocon.saveOnClose();
         });
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 250, 130);
+
+
         stage.setTitle("Timer");
         stage.setScene(scene);
         stage.show();
+
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+
+        // Set the position of the stage to the bottom-right corner of the screen.
+        stage.setX(screenBounds.getMaxX() - stage.getWidth());
+        stage.setY(screenBounds.getMaxY() - stage.getHeight());
     }
 
     public static void main(String[] args) {
