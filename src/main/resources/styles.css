@@ -1,15 +1,18 @@
 .root {
     -fx-background-color: #f0f0f0;
     -fx-padding: 20px;
+
 }
 
 .button {
     -fx-font-size: 14px;
     -fx-padding: 6px 12px;
+
 }
 
 .label {
     -fx-font-size: 18px;
+    -fx-padding: 4px
 }
 
 .text-field {
@@ -17,7 +20,7 @@
     -fx-prompt-text-fill: gray;
     -fx-background-color: #ffffff;
     -fx-background-radius: 4px;
-    -fx-padding: 4px;
+    -fx-padding: 5px;
 }
 
 .text-field:focused {

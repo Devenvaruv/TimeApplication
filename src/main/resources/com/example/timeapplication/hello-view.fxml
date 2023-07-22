@@ -12,7 +12,7 @@
 <FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.timeapplication.HelloController" stylesheets="/styles.css">
     <VBox>
         <HBox>
-            <Button text="Start/pause" onAction="#onStartButtonClick"/>
+            <Button text="Pause" onAction="#onStartButtonClick"/>
             <Label fx:id="timerField">00:00:00</Label>
             <Button text="End" onAction="#onEndButtonClick"/>
         </HBox>
@@ -22,7 +22,7 @@
         </HBox>
         <HBox>
             <Label text="Note:"/>
-            <TextField promptText="Enter"/>
+            <TextField/>
         </HBox>
     </VBox>
 </FlowPane>
