@@ -159,13 +159,6 @@
       <option name="presentableId" value="Default" />
       <updated>1686533564610</updated>
     </task>
-    <task id="LOCAL-00013" summary="Timer is working:)">
-      <created>1687838264321</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1687838264321</updated>
-    </task>
     <task id="LOCAL-00014" summary="Resume/pause/cancle function is working">
       <created>1687839570926</created>
       <option name="number" value="00014" />
@@ -502,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690228466242</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Bottom Screen Launcher">
+      <created>1690312401303</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1690312401304</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
