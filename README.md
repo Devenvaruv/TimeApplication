@@ -12,9 +12,6 @@ The Time Application is a JavaFX-based timer and goal tracker application. It al
 - Automatically saves data when the application is closed.
 - Intuitive and easy-to-use user interface.
 
-## Demo
-
-[Include a link to a demo video or GIF if available.]
 
 ## Installation
 
@@ -34,21 +31,4 @@ To run the Time Application on your local machine, make sure you have Java 8 or 
 
 ## Contributing
 
-Contributions to the Time Application are welcome! If you have any bug fixes, improvements, or new features to add, please follow these steps:
-
-1. Fork this repository.
-2. Create a new branch with a descriptive name.
-3. Make your changes and test thoroughly.
-4. Commit your changes and push the branch to your fork.
-5. Submit a pull request to this repository, explaining the changes you made.
-
-## License
-
-[Specify the license under which your project is distributed.]
-
-## Contact
-
-For any questions or feedback, feel free to get in touch:
-
-- Email: [your.email@example.com]
-- GitHub: [your-github-username](https://github.com/your-github-username)
+Contributions to the Time Application are welcome! If you have any bug fixes, improvements, or new features to add, please do.
