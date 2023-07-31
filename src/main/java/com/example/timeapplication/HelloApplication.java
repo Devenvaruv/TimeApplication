@@ -79,7 +79,7 @@ class ExcelDataWriter {
                 workbook.write(fileOutputStream);
             }
 
-            System.out.println("Timer and Goal Data add");
+            System.out.println("Timer and Goal Data");
 
         } catch (IOException e) {
             e.printStackTrace();
