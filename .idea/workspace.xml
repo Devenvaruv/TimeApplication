@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="Bottom Screen Launcher" />
+    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="Bottom Screen Launcher">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,13 +160,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686533564610</updated>
-    </task>
-    <task id="LOCAL-00017" summary="excel Not Working">
-      <created>1687931861076</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1687931861076</updated>
     </task>
     <task id="LOCAL-00018" summary="excel Working">
       <created>1687989853510</created>
@@ -502,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690798623404</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Bottom Screen Launcher">
+      <created>1690836684547</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1690836684547</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

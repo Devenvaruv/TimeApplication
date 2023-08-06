@@ -14,7 +14,7 @@
         <HBox>
             <Button text="Pause" onAction="#onStartButtonClick"/>
             <Label fx:id="timerField">00:00:00</Label>
-            <Button text="End" onAction="#onEndButtonClick"/>
+            <Button text="Reset" onAction="#onEndButtonClick"/>
         </HBox>
         <HBox>
             <Label text="Goal:"/>
