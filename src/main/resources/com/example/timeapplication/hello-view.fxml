@@ -18,7 +18,7 @@
         </HBox>
         <HBox>
             <Label text="Goal:"/>
-            <TextField fx:id="goalTextField" onAction="#setGoalTextField" promptText="Enter?"/>
+            <TextField fx:id="goalTextField" onAction="#setGoalTextField" promptText="Enter"/>
         </HBox>
         <HBox>
             <Label text="Note:"/>

@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="Bottom Screen Launcher">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7547dab2-0073-4a9a-8566-d325d4e37341" name="Changes" comment="grammar Errors" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +37,9 @@
         <option name="url" value="https://github.com/Devenvaruv/TimeApplication.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2R5IYHYT1iEbW51WI3PA0zjlpmq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -160,13 +161,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686533564610</updated>
-    </task>
-    <task id="LOCAL-00018" summary="excel Working">
-      <created>1687989853510</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1687989853510</updated>
     </task>
     <task id="LOCAL-00019" summary="excel Working">
       <created>1687990090732</created>
@@ -504,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690836684547</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="grammar Errors">
+      <created>1691343438011</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1691343438012</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -546,7 +547,8 @@
     <MESSAGE value="v.1.00" />
     <MESSAGE value="startup and closeup" />
     <MESSAGE value="Bottom Screen Launcher" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bottom Screen Launcher" />
+    <MESSAGE value="grammar Errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="grammar Errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
