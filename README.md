@@ -4,7 +4,7 @@
 
 ## Description
 
-The Time Application is a JavaFX-based timer and goal tracker application. It allows users to set goals and track time progress. The application automatically saves data upon closing, ensuring that your progress is retained for the next session.
+This Time Application is a JavaFX-based timer and goal tracker application. It allows users to set goals and track time progress. The application automatically saves data upon closing, ensuring that your progress is retained for the next session.
 
 ## Features
 
